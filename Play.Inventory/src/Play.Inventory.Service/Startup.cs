@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -14,6 +15,7 @@ using Microsoft.OpenApi.Models;
 using Play.Common.MongoDB;
 using Play.Inventory.Service.Clients;
 using Play.Inventory.Service.Entities;
+using Polly;
 
 namespace Play.Inventory.Service
 {
@@ -38,8 +40,9 @@ namespace Play.Inventory.Service
                 Client.BaseAddress = new Uri("https://localhost:5001");
             }
 
-            );
-
+            ).AddTransientHttpErrorPolicy(builder => builder.WaitAndRetryAsync(5,
+            retryattempt => TimeSpan.FromSeconds(Math.Pow(2, retryattempt))))
+            .AddPolicyHandler(Policy.TimeoutAsync<HttpResponseMessage>(1));
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

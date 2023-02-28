@@ -24,7 +24,7 @@ namespace Play.Catlog.Service.Controllers
         [HttpGet]
         public async Task<ActionResult<ItemDto>> GetAsync()
         {
-
+            await Task.Delay(5000);
 
             var items = (IEnumerable<ItemDto>)(await itemsRepository.GetAllAsync()).Select(item => item.AsDto());
 
