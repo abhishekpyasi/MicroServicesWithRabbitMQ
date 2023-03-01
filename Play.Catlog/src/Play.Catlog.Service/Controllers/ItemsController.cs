@@ -2,11 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MassTransit;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
 using Play.Catlog.Service.DTO;
 using Play.Catlog.Service.Entities;
 using Play.Common;
+using static Play.Catalog.Contract.Contracts;
 
 namespace Play.Catlog.Service.Controllers
 {
@@ -16,9 +18,12 @@ namespace Play.Catlog.Service.Controllers
     {
         private readonly IRepository<Item> itemsRepository;
 
-        public ItemsController(IRepository<Item> itemsRepository)
+        private readonly IPublishEndpoint publishEndpoint;
+
+        public ItemsController(IRepository<Item> itemsRepository, IPublishEndpoint publishEndpoint)
         {
             this.itemsRepository = itemsRepository;
+            this.publishEndpoint = publishEndpoint;
         }
 
         [HttpGet]
@@ -54,7 +59,7 @@ namespace Play.Catlog.Service.Controllers
              createItemDto.Name, createItemDto.Description,
              createItemDto.Price, DateTimeOffset.UtcNow);
             await itemsRepository.CreateAsync(item);
-            // As the name suggests, this method allows us 
+            // As the name s    uggests, this method allows us 
             // to set Location URI of the newly created resource by 
             // specifying the name of an action where we can retrieve our resource.
 
@@ -63,7 +68,9 @@ namespace Play.Catlog.Service.Controllers
         routeValues - info necessary to generate a correct URL, for example, path or query parameters here its ID
         value - content to return in a response body  This is sent in response header location attribute*/
 
+            //publish in end point
 
+            await publishEndpoint.Publish(new CatalogItemCreated(item.Id, item.Name, item.Description));
             return CreatedAtAction(nameof(GetByIdAsync), new { id = item.Id }, item);
 
 
@@ -89,6 +96,9 @@ namespace Play.Catlog.Service.Controllers
 
             await itemsRepository.UpdateAsync(existingitem);
 
+            await publishEndpoint.Publish(new CatalogItemUpdated(existingitem.Id, existingitem.Name, existingitem.Description));
+
+
 
 
             return NoContent();
@@ -107,6 +117,8 @@ namespace Play.Catlog.Service.Controllers
                 return NotFound();
             }
             await itemsRepository.RemoveAsync(item.Id);
+            await publishEndpoint.Publish(new CatalogItemDeleted(item.Id));
+
             return NoContent();
         }
 
