@@ -493,9 +493,11 @@
           }
         }
       },
-      "Play.Common/1.0.0": {
+      "Play.Common/1.0.1": {
         "type": "package",
         "dependencies": {
+          "MassTransit.AspnetCore": "7.3.1",
+          "MassTransit.RabbitMQ": "8.0.13",
           "Microsoft.Extensions.Configuration": "5.0.0",
           "Microsoft.Extensions.Configuration.Binder": "5.0.0",
           "Microsoft.Extensions.DependencyInjection": "5.0.0",
@@ -1457,14 +1459,14 @@
         "runtimes/win/native/mongocrypt.dll"
       ]
     },
-    "Play.Common/1.0.0": {
-      "sha512": "xSGROpt4k/9cH2bcTXVzNIBJrrLX2OijW/mT0ukCJ4pWvHtXR7CK3bAh6jZfsQrxRyNJtYnfZrgYIbSOqFUDdA==",
+    "Play.Common/1.0.1": {
+      "sha512": "rmqwMiJ7VinNhPHkWmRho+0b6zX9zvOtfiG48ueksUqT4+R7OobUO76vxbTYXhvR8zJ6RNzfAQ6eO7ZNuRH+Lg==",
       "type": "package",
-      "path": "play.common/1.0.0",
+      "path": "play.common/1.0.1",
       "files": [
         ".nupkg.metadata",
         "lib/net5.0/Play.Common.dll",
-        "play.common.1.0.0.nupkg.sha512",
+        "play.common.1.0.1.nupkg.sha512",
         "play.common.nuspec"
       ]
     },
@@ -2034,10 +2036,8 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
-      "MassTransit.AspnetCore >= 7.3.1",
-      "MassTransit.RabbitMQ >= 8.0.13",
       "Play.Catalog.Contract >= 1.0.0",
-      "Play.Common >= 1.0.0",
+      "Play.Common >= 1.0.1",
       "Swashbuckle.AspNetCore >= 5.6.3"
     ]
   },
@@ -2085,17 +2085,9 @@
       "net5.0": {
         "targetAlias": "net5.0",
         "dependencies": {
-          "MassTransit.AspnetCore": {
-            "target": "Package",
-            "version": "[7.3.1, )"
-          },
-          "MassTransit.RabbitMQ": {
-            "target": "Package",
-            "version": "[8.0.13, )"
-          },
           "Play.Common": {
             "target": "Package",
-            "version": "[1.0.0, )"
+            "version": "[1.0.1, )"
           },
           "Swashbuckle.AspNetCore": {
             "target": "Package",

@@ -19,7 +19,7 @@ using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Serializers;
 using MongoDB.Driver;
 using Play.Catlog.Service.Entities;
-using Play.Catlog.Service.Settings;
+using Play.Common.MassTransit;
 using Play.Common.MongoDB;
 using Play.Common.Settings;
 
@@ -87,26 +87,28 @@ namespace Play.Catlog.Service
             services.AddMongo();
             services.AddMongoRepo<Item>("Items");
 
-            services.AddMassTransit(x =>
+            services.AddMasstransitWithRabbitMq();
 
-            {
-                x.UsingRabbitMq((context, configurator) =>
-                {
+            //             services.AddMassTransit(x =>
 
-                    var rabbitMQSettings = Configuration.GetSection(nameof(RabbitMQSettings)).Get<RabbitMQSettings>();
+            //             {
+            //                 x.UsingRabbitMq((context, configurator) =>
+            //                 {
 
-                    configurator.Host(rabbitMQSettings.Host);
+            //                     var rabbitMQSettings = Configuration.GetSection(nameof(RabbitMQSettings)).Get<RabbitMQSettings>();
 
-                    configurator.ConfigureEndpoints(context, new KebabCaseEndpointNameFormatter(serviceSettings.ServiceName, false));
+            //                     configurator.Host(rabbitMQSettings.Host);
 
-                });
-            });
-            services.Configure<MassTransitHostOptions>(options =>
-{
-    options.WaitUntilStarted = true;
-    options.StartTimeout = TimeSpan.FromSeconds(30);
-    options.StopTimeout = TimeSpan.FromMinutes(1);
-});
+            //                     configurator.ConfigureEndpoints(context, new KebabCaseEndpointNameFormatter(serviceSettings.ServiceName, false));
+
+            //                 });
+            //             });
+            //             services.Configure<MassTransitHostOptions>(options =>
+            // {
+            //     options.WaitUntilStarted = true;
+            //     options.StartTimeout = TimeSpan.FromSeconds(30);
+            //     options.StopTimeout = TimeSpan.FromMinutes(1);
+            // });
 
 
             services.AddControllers(options =>

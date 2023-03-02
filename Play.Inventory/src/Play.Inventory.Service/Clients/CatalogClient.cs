@@ -22,6 +22,9 @@ namespace Play.Inventory.Service.Clients
 
             var items = await httpClient.GetFromJsonAsync<IReadOnlyCollection<CatalogItemDto>>("/items");
 
+
+
+
             return items;
         }
 

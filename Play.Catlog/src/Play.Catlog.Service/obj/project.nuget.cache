@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "49mzBSTgAMpMm5srW68elPZtZoHxzrlSz8Pp4Wk/EscyDJptIhRot6o0v0u0kykeBA4qt4anciilv5SORtjAeg==",
+  "dgSpecHash": "vslNdEiOEJJVGpmSiSwfGIFzclf9c3xblHLEEfcaVdcV4F/a1bWO0nKeFu5VLLnFutNS0hsik5IhLDhcy7bs4w==",
   "success": true,
   "projectFilePath": "C:\\Users\\abhis\\Documents\\Development\\DotNet\\MicroServices\\Play.Catlog\\src\\Play.Catlog.Service\\Play.Catlog.Service.csproj",
   "expectedPackageFiles": [
@@ -32,7 +32,7 @@
     "C:\\Users\\abhis\\.nuget\\packages\\mongodb.driver\\2.19.0\\mongodb.driver.2.19.0.nupkg.sha512",
     "C:\\Users\\abhis\\.nuget\\packages\\mongodb.driver.core\\2.19.0\\mongodb.driver.core.2.19.0.nupkg.sha512",
     "C:\\Users\\abhis\\.nuget\\packages\\mongodb.libmongocrypt\\1.7.0\\mongodb.libmongocrypt.1.7.0.nupkg.sha512",
-    "C:\\Users\\abhis\\.nuget\\packages\\play.common\\1.0.0\\play.common.1.0.0.nupkg.sha512",
+    "C:\\Users\\abhis\\.nuget\\packages\\play.common\\1.0.1\\play.common.1.0.1.nupkg.sha512",
     "C:\\Users\\abhis\\.nuget\\packages\\rabbitmq.client\\6.4.0\\rabbitmq.client.6.4.0.nupkg.sha512",
     "C:\\Users\\abhis\\.nuget\\packages\\sharpcompress\\0.30.1\\sharpcompress.0.30.1.nupkg.sha512",
     "C:\\Users\\abhis\\.nuget\\packages\\snappier\\1.0.0\\snappier.1.0.0.nupkg.sha512",
