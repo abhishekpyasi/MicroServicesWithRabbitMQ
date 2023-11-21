@@ -1,0 +1,171 @@
+MiddlewareImpl.Invoke(HttpContext context)
+info: IdentityServer4.Hosting.IdentityServerMiddleware[0]
+      Invoking IdentityServer endpoint: IdentityServer4.Endpoints.AuthorizeEndpoint for /connect/authorize
+info: IdentityServer4.ResponseHandling.AuthorizeInteractionResponseGenerator[0]
+      Showing login: User is not authenticated
+info: Play.Identity.Service.Areas.Identity.Pages.Account.RegisterModel[0]
+      User created a new account with password.
+info: IdentityServer4.Hosting.IdentityServerMiddleware[0]
+      Invoking IdentityServer endpoint: IdentityServer4.Endpoints.AuthorizeEndpoint for /connect/authorize
+info: IdentityServer4.Events.DefaultEventService[0]
+      {
+        "ClientId": "postman",
+        "RedirectUri": "urn:ietf:wg:oauth:2.0:oob",
+        "Endpoint": "Authorize",
+        "SubjectId": "0baed20e-3992-48e1-a8cf-84a5385430e2",
+        "Scopes": "openid",
+        "GrantType": "authorization_code",
+        "Tokens": [
+          {
+            "TokenType": "code",
+            "TokenValue": "****8F40"
+          }
+        ],
+        "Category": "Token",
+        "Name": "Token Issued Success",
+        "EventType": "Success",
+        "Id": 2000,
+        "ActivityId": "0HMV9P2NH16K5:00000001",
+        "TimeStamp": "2023-11-20T13:11:43Z",
+        "ProcessId": 9636,
+        "LocalIpAddress": "::1:5003",
+        "RemoteIpAddress": "::1"
+      }
+info: IdentityServer4.Hosting.IdentityServerMiddleware[0]
+      Invoking IdentityServer endpoint: IdentityServer4.Endpoints.TokenEndpoint for /connect/token
+info: IdentityServer4.Events.DefaultEventService[0]
+      {
+        "ClientId": "postman",
+        "AuthenticationMethod": "NoSecret",
+        "Category": "Authentication",
+        "Name": "Client Authentication Success",
+        "EventType": "Success",
+        "Id": 1010,
+        "ActivityId": "0HMV9P2NH16K7:00000001",
+        "TimeStamp": "2023-11-20T13:11:45Z",
+        "ProcessId": 9636,
+        "LocalIpAddress": "::1:5003",
+        "RemoteIpAddress": "::1"
+      }
+info: IdentityServer4.Validation.TokenRequestValidator[0]
+      Token request validation success, {
+        "ClientId": "postman",
+        "GrantType": "authorization_code",
+        "AuthorizationCode": "****8F40",
+        "RefreshToken": "********",
+        "Raw": {
+          "grant_type": "authorization_code",
+          "code": "7FC297BD80DB567F3C531D64581A68C148D62C1DFCDD3FDD5E9CB61B0D308F40",
+          "redirect_uri": "urn:ietf:wg:oauth:2.0:oob",
+          "code_verifier": "pTijZsrwOHlm5MVZsro-W60NtEeYogSgu56iMrE7JpI"
+        }
+      }
+info: IdentityServer4.Events.DefaultEventService[0]
+      {
+        "ClientId": "postman",
+        "Endpoint": "Token",
+        "SubjectId": "0baed20e-3992-48e1-a8cf-84a5385430e2",
+        "Scopes": "openid",
+        "GrantType": "authorization_code",
+        "Tokens": [
+          {
+            "TokenType": "id_token",
+            "TokenValue": "****XeZA"
+          },
+          {
+            "TokenType": "access_token",
+            "TokenValue": "****iTxA"
+          }
+        ],
+        "Category": "Token",
+        "Name": "Token Issued Success",
+        "EventType": "Success",
+        "Id": 2000,
+        "ActivityId": "0HMV9P2NH16K7:00000001",
+        "TimeStamp": "2023-11-20T13:11:45Z",
+        "ProcessId": 9636,
+        "LocalIpAddress": "::1:5003",
+        "RemoteIpAddress": "::1"
+      }
+info: IdentityServer4.Hosting.IdentityServerMiddleware[0]
+      Invoking IdentityServer endpoint: IdentityServer4.Endpoints.AuthorizeEndpoint for /connect/authorize
+info: IdentityServer4.Events.DefaultEventService[0]
+      {
+        "ClientId": "postman",
+        "RedirectUri": "urn:ietf:wg:oauth:2.0:oob",
+        "Endpoint": "Authorize",
+        "SubjectId": "0baed20e-3992-48e1-a8cf-84a5385430e2",
+        "Scopes": "openid",
+        "GrantType": "authorization_code",
+        "Tokens": [
+          {
+            "TokenType": "code",
+            "TokenValue": "****32FD"
+          }
+        ],
+        "Category": "Token",
+        "Name": "Token Issued Success",
+        "EventType": "Success",
+        "Id": 2000,
+        "ActivityId": "0HMV9P2NH16K8:00000001",
+        "TimeStamp": "2023-11-20T13:19:16Z",
+        "ProcessId": 9636,
+        "LocalIpAddress": "::1:5003",
+        "RemoteIpAddress": "::1"
+      }
+info: IdentityServer4.Hosting.IdentityServerMiddleware[0]
+      Invoking IdentityServer endpoint: IdentityServer4.Endpoints.TokenEndpoint for /connect/token
+info: IdentityServer4.Events.DefaultEventService[0]
+      {
+        "ClientId": "postman",
+        "AuthenticationMethod": "NoSecret",
+        "Category": "Authentication",
+        "Name": "Client Authentication Success",
+        "EventType": "Success",
+        "Id": 1010,
+        "ActivityId": "0HMV9P2NH16KA:00000001",
+        "TimeStamp": "2023-11-20T13:19:16Z",
+        "ProcessId": 9636,
+        "LocalIpAddress": "::1:5003",
+        "RemoteIpAddress": "::1"
+      }
+info: IdentityServer4.Validation.TokenRequestValidator[0]
+      Token request validation success, {
+        "ClientId": "postman",
+        "GrantType": "authorization_code",
+        "AuthorizationCode": "****32FD",
+        "RefreshToken": "********",
+        "Raw": {
+          "grant_type": "authorization_code",
+          "code": "61E87ED4E0D329184041DA9D9F9D367ECF1558E9B1D8EC1D1A922094665D32FD",
+          "redirect_uri": "urn:ietf:wg:oauth:2.0:oob",
+          "code_verifier": "ZJnCgSZpFxXC38dVDNBZkXbSYmNDstuefwgbyyb1Yoo"
+        }
+      }
+info: IdentityServer4.Events.DefaultEventService[0]
+      {
+        "ClientId": "postman",
+        "Endpoint": "Token",
+        "SubjectId": "0baed20e-3992-48e1-a8cf-84a5385430e2",       
+        "Scopes": "openid",
+        "GrantType": "authorization_code",
+        "Tokens": [
+          {
+            "TokenType": "id_token",
+            "TokenValue": "****hdsA"
+          },
+          {
+            "TokenType": "access_token",
+            "TokenValue": "****_c2w"
+          }
+        ],
+        "Category": "Token",
+        "Name": "Token Issued Success",
+        "EventType": "Success",
+        "Id": 2000,
+        "ActivityId": "0HMV9P2NH16KA:00000001",
+        "TimeStamp": "2023-11-20T13:19:16Z",
+        "ProcessId": 9636,
+        "LocalIpAddress": "::1:5003",
+        "RemoteIpAddress": "::1"
+      }

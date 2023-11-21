@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "vslNdEiOEJJVGpmSiSwfGIFzclf9c3xblHLEEfcaVdcV4F/a1bWO0nKeFu5VLLnFutNS0hsik5IhLDhcy7bs4w==",
+  "dgSpecHash": "o2tXk2vUgubefU7PZYefbJVgU/3ezlq5SIZ3MnEUUlzhuZyggsXBcv6HpDoFg9KAIf44lqIRe8ZoUHIarHTqCg==",
   "success": true,
   "projectFilePath": "C:\\Users\\abhis\\Documents\\Development\\DotNet\\MicroServices\\Play.Catlog\\src\\Play.Catlog.Service\\Play.Catlog.Service.csproj",
   "expectedPackageFiles": [
@@ -51,7 +51,8 @@
     "C:\\Users\\abhis\\.nuget\\packages\\system.text.encodings.web\\6.0.0\\system.text.encodings.web.6.0.0.nupkg.sha512",
     "C:\\Users\\abhis\\.nuget\\packages\\system.text.json\\6.0.7\\system.text.json.6.0.7.nupkg.sha512",
     "C:\\Users\\abhis\\.nuget\\packages\\system.threading.channels\\6.0.0\\system.threading.channels.6.0.0.nupkg.sha512",
-    "C:\\Users\\abhis\\.nuget\\packages\\zstdsharp.port\\0.6.2\\zstdsharp.port.0.6.2.nupkg.sha512"
+    "C:\\Users\\abhis\\.nuget\\packages\\zstdsharp.port\\0.6.2\\zstdsharp.port.0.6.2.nupkg.sha512",
+    "C:\\Users\\abhis\\.nuget\\packages\\play.catalog.contract\\1.0.0\\play.catalog.contract.1.0.0.nupkg.sha512"
   ],
   "logs": []
 }
