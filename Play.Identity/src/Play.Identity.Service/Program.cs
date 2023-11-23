@@ -36,8 +36,9 @@ builder.Services.AddIdentityServer(options =>
 })
                 .AddAspNetIdentity<ApplicationUser>()
                 .AddInMemoryApiScopes(identityServerSettings?.ApiScopes)
-                .AddInMemoryClients(identityServerSettings?.Clients)
-                .AddInMemoryIdentityResources(identityServerSettings?.IdentityResources)
+                .AddInMemoryClients(identityServerSettings?.Clients) // clients which can request
+                .AddInMemoryIdentityResources(identityServerSettings?.IdentityResources) // named collection of claims
+                .AddInMemoryApiResources(identityServerSettings?.ApiResources) // for aud claim generation for which resource you want token
                 .AddDeveloperSigningCredential();
 
 

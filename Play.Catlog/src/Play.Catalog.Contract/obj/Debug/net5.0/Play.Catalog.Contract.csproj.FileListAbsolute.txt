@@ -1,7 +1,6 @@
 C:\Users\abhis\Documents\Development\DotNet\MicroServices\Play.Catlog\src\Play.Catalog.Contract\bin\Debug\net5.0\Play.Catalog.Contract.deps.json
 C:\Users\abhis\Documents\Development\DotNet\MicroServices\Play.Catlog\src\Play.Catalog.Contract\bin\Debug\net5.0\Play.Catalog.Contract.dll
 C:\Users\abhis\Documents\Development\DotNet\MicroServices\Play.Catlog\src\Play.Catalog.Contract\bin\Debug\net5.0\Play.Catalog.Contract.pdb
-C:\Users\abhis\Documents\Development\DotNet\MicroServices\Play.Catlog\src\Play.Catalog.Contract\obj\Debug\net5.0\Play.Catalog.Contract.csproj.AssemblyReference.cache
 C:\Users\abhis\Documents\Development\DotNet\MicroServices\Play.Catlog\src\Play.Catalog.Contract\obj\Debug\net5.0\Play.Catalog.Contract.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\abhis\Documents\Development\DotNet\MicroServices\Play.Catlog\src\Play.Catalog.Contract\obj\Debug\net5.0\Play.Catalog.Contract.AssemblyInfoInputs.cache
 C:\Users\abhis\Documents\Development\DotNet\MicroServices\Play.Catlog\src\Play.Catalog.Contract\obj\Debug\net5.0\Play.Catalog.Contract.AssemblyInfo.cs

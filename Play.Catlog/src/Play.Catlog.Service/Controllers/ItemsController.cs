@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MassTransit;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
 using Play.Catlog.Service.DTO;
@@ -14,6 +15,7 @@ namespace Play.Catlog.Service.Controllers
 {
     [ApiController]
     [Route("Items")]
+    [Authorize]
     public class ItemsController : ControllerBase
     {
         private readonly IRepository<Item> itemsRepository;

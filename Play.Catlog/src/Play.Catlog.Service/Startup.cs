@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MassTransit;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -19,6 +20,7 @@ using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Serializers;
 using MongoDB.Driver;
 using Play.Catlog.Service.Entities;
+using Play.Common.Identity;
 using Play.Common.MassTransit;
 using Play.Common.MongoDB;
 using Play.Common.Settings;
@@ -88,6 +90,15 @@ namespace Play.Catlog.Service
             services.AddMongoRepo<Item>("Items");
 
             services.AddMasstransitWithRabbitMq();
+            services.AddJwtBearerAuthentication();
+
+            // services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            //         .AddJwtBearer(options =>
+            //         {
+
+            //             options.Authority = "https://localhost:5003";
+            //             options.Audience = serviceSettings.ServiceName;
+            //         });
 
             //             services.AddMassTransit(x =>
 
@@ -135,6 +146,8 @@ namespace Play.Catlog.Service
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
