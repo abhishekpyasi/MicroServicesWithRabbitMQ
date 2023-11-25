@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Play.Catalog.Contract")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2e30625ba57c744d15c3b581047337c509717f0c")]
 [assembly: System.Reflection.AssemblyProductAttribute("Play.Catalog.Contract")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Play.Catalog.Contract")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

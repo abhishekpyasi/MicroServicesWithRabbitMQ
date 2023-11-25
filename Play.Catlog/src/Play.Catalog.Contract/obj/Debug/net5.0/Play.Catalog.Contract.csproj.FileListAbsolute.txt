@@ -9,3 +9,4 @@ C:\Users\abhis\Documents\Development\DotNet\MicroServices\Play.Catlog\src\Play.C
 C:\Users\abhis\Documents\Development\DotNet\MicroServices\Play.Catlog\src\Play.Catalog.Contract\obj\Debug\net5.0\refint\Play.Catalog.Contract.dll
 C:\Users\abhis\Documents\Development\DotNet\MicroServices\Play.Catlog\src\Play.Catalog.Contract\obj\Debug\net5.0\Play.Catalog.Contract.pdb
 C:\Users\abhis\Documents\Development\DotNet\MicroServices\Play.Catlog\src\Play.Catalog.Contract\obj\Debug\net5.0\ref\Play.Catalog.Contract.dll
+C:\Users\abhis\Documents\Development\DotNet\MicroServices\Play.Catlog\src\Play.Catalog.Contract\obj\Debug\net5.0\Play.Catalog.Contract.sourcelink.json

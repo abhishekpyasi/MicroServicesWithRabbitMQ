@@ -74,3 +74,4 @@ C:\Users\abhis\Documents\Development\DotNet\MicroServices\Play.Catlog\src\Play.C
 C:\Users\abhis\Documents\Development\DotNet\MicroServices\Play.Catlog\src\Play.Catlog.Service\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\abhis\Documents\Development\DotNet\MicroServices\Play.Catlog\src\Play.Catlog.Service\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\abhis\Documents\Development\DotNet\MicroServices\Play.Catlog\src\Play.Catlog.Service\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\abhis\Documents\Development\DotNet\MicroServices\Play.Catlog\src\Play.Catlog.Service\obj\Debug\net5.0\Play.Catlog.Service.sourcelink.json

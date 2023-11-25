@@ -10,6 +10,7 @@ using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading;
 using System.Threading.Tasks;
+using MassTransit.Configuration;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -18,6 +19,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Play.Identity.Service.Entities;
 
 namespace Play.Identity.Service.Areas.Identity.Pages.Account
@@ -25,7 +27,9 @@ namespace Play.Identity.Service.Areas.Identity.Pages.Account
     public class RegisterModel : PageModel
     {
 
-        private const decimal _startingGil = 100;
+        //  private const decimal _startingGil = 100;
+
+        private readonly IdentitySettings identitySettings;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IUserStore<ApplicationUser> _userStore;
@@ -38,7 +42,9 @@ namespace Play.Identity.Service.Areas.Identity.Pages.Account
             IUserStore<ApplicationUser> userStore,
             SignInManager<ApplicationUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            IOptions<IdentitySettings> options
+            )
         {
             _userManager = userManager;
             _userStore = userStore;
@@ -46,6 +52,9 @@ namespace Play.Identity.Service.Areas.Identity.Pages.Account
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            this.identitySettings = options.Value;
+
+
         }
 
         /// <summary>
@@ -125,6 +134,8 @@ namespace Play.Identity.Service.Areas.Identity.Pages.Account
                 {
                     _logger.LogInformation("User created a new account with password.");
 
+                    await _userManager.AddToRoleAsync(user, Roles.Player); // assigning role to user
+
                     var userId = await _userManager.GetUserIdAsync(user);
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
@@ -161,7 +172,7 @@ namespace Play.Identity.Service.Areas.Identity.Pages.Account
         {
             try
             {
-                return new ApplicationUser() { Gil = _startingGil };
+                return new ApplicationUser() { Gil = identitySettings.StartingGil };
             }
             catch
             {

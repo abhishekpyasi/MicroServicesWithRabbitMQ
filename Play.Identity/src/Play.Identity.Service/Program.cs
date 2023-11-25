@@ -1,10 +1,13 @@
 using System.Configuration;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.DependencyInjection;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Serializers;
 using Play.Common.Settings;
+using Play.Identity.Service;
 using Play.Identity.Service.Entities;
+using Play.Identity.Service.HostedService;
 using Play.Identity.Service.Settings;
 
 
@@ -19,8 +22,16 @@ BsonSerializer.RegisterSerializer(new GuidSerializer(BsonType.String));
 var serviceSettings = builder.Configuration.GetSection(nameof(ServiceSettings)).Get<ServiceSettings>();
 var mongoDbSettings = builder.Configuration.GetSection(nameof(MongoDbSettings)).Get<MongoDbSettings>();
 IdentityServerSettings? identityServerSettings = builder.Configuration.GetSection(nameof(IdentityServerSettings)).Get<IdentityServerSettings>();
+//builder.Services.Configure<IdentitySettings>(builder.Configuration.GetSection(nameof(IdentitySettings)));
+builder.Configuration.AddJsonFile("secrets.json", optional: true, reloadOnChange: true);
+var secrets = new ConfigurationBuilder()
+    .AddJsonFile("secrets.json", true, true)
+    .Build();
+
+string secretValue = secrets["IdentitySettings:AdminUserPassword"];
 
 
+builder.Services.Configure<IdentitySettings>(builder.Configuration.GetSection(nameof(IdentitySettings)));
 builder.Services.AddDefaultIdentity<ApplicationUser>()
 .AddRoles<ApplicationRole>().AddMongoDbStores<ApplicationUser, ApplicationRole, Guid>(
 
@@ -45,7 +56,14 @@ builder.Services.AddIdentityServer(options =>
 
 
 
+
+
+builder.Services.AddLocalApiAuthentication();// for authentication of API residing in IdentytyServer here its UserAPi
+
 builder.Services.AddControllers();
+builder.Services.AddHostedService<IdentitySeedHostedService>(); // to add hosted service to DI container
+
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

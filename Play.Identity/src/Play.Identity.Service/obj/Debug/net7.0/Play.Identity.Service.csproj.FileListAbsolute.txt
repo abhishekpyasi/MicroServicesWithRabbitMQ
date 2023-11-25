@@ -265,3 +265,4 @@ C:\Users\abhis\Documents\Development\DotNet\MicroServices\Play.Identity\src\Play
 C:\Users\abhis\Documents\Development\DotNet\MicroServices\Play.Identity\src\Play.Identity.Service\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\abhis\Documents\Development\DotNet\MicroServices\Play.Identity\src\Play.Identity.Service\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\abhis\Documents\Development\DotNet\MicroServices\Play.Identity\src\Play.Identity.Service\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\abhis\Documents\Development\DotNet\MicroServices\Play.Identity\src\Play.Identity.Service\obj\Debug\net7.0\Play.Identity.Service.sourcelink.json

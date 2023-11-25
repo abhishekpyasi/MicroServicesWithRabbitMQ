@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -11,11 +12,11 @@ using Play.Inventory.Service.Entities;
 
 namespace Play.Inventory.Service.Controllers
 {
-    [Authorize]
     [ApiController]
     [Route("Items")]
     public class ItemsController : ControllerBase
     {
+        private const string AdminRole = "Admin";
 
         private readonly IRepository<InventoryItem> inventoryItemsRepository;
         private readonly IRepository<CatalogItem> catalogItemsRepository;
@@ -27,15 +28,31 @@ namespace Play.Inventory.Service.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<InventoryItemDto>>> GetAsync(Guid UserID)
+        public async Task<ActionResult<IEnumerable<InventoryItemDto>>> GetAsync(Guid userID)
         {
 
-            if (UserID == Guid.Empty)
+            if (userID == Guid.Empty)
             {
                 return BadRequest();
             }
 
-            var inventoryItemEntities = await inventoryItemsRepository.GetAllAsync(item => item.UserId == UserID);
+            //check userid for access token
+
+            var currentUserID = User.FindFirstValue("sub");
+
+            if (Guid.Parse(currentUserID) != userID)
+            {
+                if (!User.IsInRole(AdminRole))
+
+                {
+                    return Unauthorized();
+
+                }
+
+            }
+
+
+            var inventoryItemEntities = await inventoryItemsRepository.GetAllAsync(item => item.UserId == userID);
             var itemIds = inventoryItemEntities.Select(item => item.CatalogItemID);
             var catalogItemEntities = await catalogItemsRepository.GetAllAsync(item => itemIds.Contains(item.Id));
 
@@ -50,8 +67,11 @@ namespace Play.Inventory.Service.Controllers
 
         }
         [HttpPost]
+        [Authorize(Roles = AdminRole)]
         public async Task<ActionResult> PostAsync(GrantItemsDto grantItemsDto)
         {
+
+
 
             var inventoryItem = await inventoryItemsRepository.GetItemAsync(item => item.UserId == grantItemsDto.UserId
 
